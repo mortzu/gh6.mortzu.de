@@ -1,0 +1,95 @@
+@font-face {
+  font-family: Arvo;
+  src: url(./fonts/Arvo-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Arvo;
+  font-weight: bold;
+  src: url(./fonts/Arvo-Bold.ttf) format('truetype');
+}
+
+pre, code {
+  background-color: #f7f7f7;
+  font-family: Consolas, Monaco, monospace;
+  font-size: .8em;
+  padding: 10px;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  position: relative;
+  padding: 2em 4em;
+  font-family: Arvo, sans-serif;
+  font-size: 1.6em;
+  hyphens: auto;
+}
+
+a {
+  color: #000;
+  font-style: italic;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+header, hgroup, section, footer {
+  display: block;
+}
+
+p {
+  margin: .5em 0;
+}
+
+hgroup {
+  margin: 1em 0 2em;
+  text-align: center;
+}
+
+hgroup > h1 {
+  font-size: 500%;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+hgroup > h2 {
+  margin: 0 0 0 4em;
+  font-weight: normal;
+}
+
+hgroup ul {
+  margin: 1em 0;
+}
+
+hgroup > ul li {
+  display: inline;
+  padding: 0.2em;
+}
+
+hgroup > ul li a:hover {
+  text-decoration: none;
+}
+
+hgroup ul > li:before {
+  display: none;
+}
+
+#impressum {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 12px !important;
+}
+
+#worksonmymachine {
+  background-image: url(./img/worksonmymachine.png);
+  width: 100px;
+  height: 97px;
+  float: left;
+}

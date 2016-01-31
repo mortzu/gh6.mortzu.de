@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub via IPv6</title>
+<link rel="stylesheet" href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+<div id="worksonmymachine"></div>
+
+<div style="max-width: 800px; margin: auto;">
+
+<div id="impressum"><a href="https://moritzrudert.de/impressum/">Impressum</a></div>
+
+<hgroup>
+  <h1>G(it)H(ub) 6</h1>
+  <h2>Access GitHub via IPv6</h2>
+  <ul>
+    <li><a class="fa fa-github" title="GitHub" href="https://github.com/mortzu"></a></li>
+    <li><a class="fa fa-twitter" title="Twitter" href="https://twitter.com/mortzu"></a></li>
+    <li><a class="fa fa-envelope" title="E-Mail" href="mailto:me@mortzu.de"></a></li>
+    <li><a class="fa fa-linkedin" title="LinkedIn" href="https://www.linkedin.com/in/moritzrudert"></a></li>
+    <li><a class="fa fa-angellist" title="AngelList" href="https://angel.co/mortzu"></a></li>
+    <li><a class="fa fa-xing" title="XING" href="https://www.xing.com/profile/MoritzKaspar_Rudert"></a></li>
+  </ul>
+</hgroup>
+
+<p>Unfortunately <a href="https://github.com/">github.com</a> is only accessible via IPv4. IPv6-only systems cannot use it.</p>
+<p>GitHub should be available over IPv6. Only GitHub can make that happen, so <a href="https://github.com/contact">contact them</a> if IPv6 is important to you.</p>
+<p>The workaround is to use proxies which are accessible on IPv6.</p>
+<p>For SSH access there is a proxy at <a href="http://www.ikvjwd.com/">www.ikvjwd.com</a>.</p>
+<p>But it doesn't provide HTTP access which I often use to clone repositories I don't want to push to.</p>
+
+<pre>
+% git clone https://git.gh6.eu/mortzu/anastasia
+Cloning into 'anastasia'...
+remote: Counting objects: 179, done.
+remote: Compressing objects: 100% (23/23), done.
+remote: Total 179 (delta 51), reused 36 (delta 36), pack-reused 119
+Receiving objects: 100% (179/179), 34.18 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (96/96), done.
+Checking connectivity... done.
+</pre>
+
+<p>An other option is to add one line to <strong>/etc/hosts</strong>:</p>
+
+<pre>
+2a02:e00:fffb:114:0:4769:7448:7562	github.com
+</pre>
+
+<p>The traffic will be proxied to GitHub services directly.</p>
+<p>You should verify the certificates of GitHub and the proxy:</p>
+<p>Run the following command <strong>before</strong> you make the /etc/hosts change:</p>
+<pre>
+openssl s_client -connect github.com:443 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+</pre>
+
+<p>And again after the change. Then <strong>verify</strong> its the same fingerprint!</p>
+
+</div>
+
+</body>
+</html>
