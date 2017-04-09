@@ -22,7 +22,7 @@ pre, code {
 
 body {
   position: relative;
-  padding: 2em 4em;
+/*  padding: 2em 4em; */
   font-family: Arvo, sans-serif;
   font-size: 1.6em;
   hyphens: auto;
@@ -92,4 +92,38 @@ hgroup ul > li:before {
   width: 100px;
   height: 97px;
   float: left;
+}
+
+@media all and (max-width: 720px) {
+  #worksonmymachine {
+    display: none;
+  }
+
+  hgroup > h1 {
+    font-size: 300%;
+  }
+
+  .h2, h2 {
+    font-size: 200%;
+  }
+}
+
+@media all and (max-width: 640px) {
+  hgroup > h1 {
+    font-size: 200%;
+  }
+
+  .h2, h2 {
+    font-size: 100%;
+  }
+}
+
+@media all and (max-device-width: 320px) {
+  hgroup > h1 {
+    font-size: 100%;
+  }
+
+  .h2, h2 {
+    font-size: 50%;
+  }
 }
