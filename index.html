@@ -27,12 +27,12 @@
   </ul>
 </hgroup>
 
-<p>Unfortunately <a href="https://github.com/">github.com</a> is only accessible via IPv4. IPv6-only systems cannot use it.</p>
-<p>GitHub should be available over IPv6. Only GitHub can make that happen, so <a href="https://github.com/contact">contact them</a> if IPv6 is important to you.</p>
-<p>The workaround is to use proxies which are accessible on IPv6.</p>
-<p>For SSH access there is a proxy at <a href="http://www.ikvjwd.com/">www.ikvjwd.com</a>.</p>
-<p>But it doesn't provide HTTP access which I often use to clone repositories I don't want to push to.</p>
+<p>Unfortunately <a href="https://github.com/">github.com</a> is only accessible via IPv4. IPv6-only systems cannot use it.
+  GitHub should be available over IPv6. Only GitHub can make that happen, so <a href="https://github.com/contact">contact them</a> if IPv6 is important to you.
+  The workaround is to use proxies which are accessible on IPv6.
+  I'm running one proxy for HTTP and SSH.</p>
 
+<h3>HTTP</h3>
 <pre>
 % git clone https://git.gh6.eu/mortzu/anastasia
 Cloning into 'anastasia'...
@@ -44,20 +44,17 @@ Resolving deltas: 100% (96/96), done.
 Checking connectivity... done.
 </pre>
 
-<p>An other option is to add one line to <strong>/etc/hosts</strong>:</p>
-
+<h3>SSH</h3>
 <pre>
-2a02:e00:fffb:114:0:4769:7448:7562	github.com
+% git clone git@git.gh6.eu:mortzu/anastasia
+Cloning into 'anastasia'...
+remote: Counting objects: 179, done.
+remote: Compressing objects: 100% (23/23), done.
+remote: Total 179 (delta 51), reused 36 (delta 36), pack-reused 119
+Receiving objects: 100% (179/179), 34.18 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (96/96), done.
+Checking connectivity... done.
 </pre>
-
-<p>The traffic will be proxied to GitHub services directly.</p>
-<p>You should verify the certificates of GitHub and the proxy:</p>
-<p>Run the following command <strong>before</strong> you make the /etc/hosts change:</p>
-<pre>
-openssl s_client -connect github.com:443 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
-</pre>
-
-<p>And again after the change. Then <strong>verify</strong> its the same fingerprint!</p>
 
 </div>
 
